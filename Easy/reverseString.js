@@ -18,16 +18,16 @@ Output: ['o','l','l','e','h']
 
 const assert = require('assert');
 
-const reverseString = (string) => {
+const reverseString = (s) => {
   const swap = (indexOne, indexTwo) => {
-    const temp = string[indexTwo];
-    string[indexTwo] = string[indexOne];
-    string[indexOne] = temp;
+    const temp = s[indexTwo];
+    s[indexTwo] = s[indexOne];
+    s[indexOne] = temp;
   };
-  for (let i = 0; i < Math.floor(string.length / 2); i += 1) {
-    swap(i, string.length - 1 - i);
+  for (let i = 0; i < Math.floor(s.length / 2); i += 1) {
+    swap(i, s.length - 1 - i);
   }
-  return string;
+  return s;
 };
 
 assert.deepEqual(reverseString(['h', 'e', 'l', 'l', 'o']), ['o', 'l', 'l', 'e', 'h']);
