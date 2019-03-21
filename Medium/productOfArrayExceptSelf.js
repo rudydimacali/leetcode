@@ -21,17 +21,14 @@ Could you solve it with constant space complexity?
 const assert = require('assert');
 
 const productExceptSelf = (nums) => {
-  const productsBefore = [1];
-  const productsAfter = [];
-  const products = [];
+  let productsAfter = 1;
+  const products = [1];
   for (let i = 1; i < nums.length; i += 1) {
-    productsBefore.push(productsBefore[i - 1] * nums[i - 1]);
+    products.push(products[i - 1] * nums[i - 1]);
   }
-  productsAfter[nums.length - 1] = 1;
-  products[nums.length - 1] = productsAfter[nums.length - 1] * productsBefore[nums.length - 1];
   for (let i = nums.length - 2; i >= 0; i -= 1) {
-    productsAfter[i] = productsAfter[i + 1] * nums[i + 1];
-    products[i] = productsAfter[i] * productsBefore[i];
+    productsAfter *= nums[i + 1];
+    products[i] *= productsAfter;
   }
   return products;
 };
