@@ -22,7 +22,7 @@ const reverse = (x) => {
   let sum = 0;
   let place = 0;
   while (digits >= 0) {
-    sum += Math.floor((x / (10 ** digits)) % 10) * (10 ** place);
+    sum += Math.floor((Math.abs(x) / (10 ** digits)) % 10) * (10 ** place);
     digits -= 1;
     place += 1;
     if (sum > ((2 ** 31) - 1)) {
