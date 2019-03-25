@@ -25,7 +25,6 @@ const twoSum = (nums, target) => {
   for (let i = 0; i < nums.length; i += 1) {
     differences[target - nums[i]] = i;
   }
-  console.log(differences);
   for (let i = 0; i < nums.length; i += 1) {
     if (differences[nums[i]] !== undefined && differences[nums[i]] !== i) {
       result.push(i, differences[nums[i]]);
