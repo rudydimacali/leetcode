@@ -23,6 +23,7 @@ return its depth = 3.
 */
 
 const maxDepth = (root) => {
+  if (!root) return 0;
   let depth = 0;
   const traverse = (node, currentDepth) => {
     depth = Math.max(currentDepth + 1, depth);
